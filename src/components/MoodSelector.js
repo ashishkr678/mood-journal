@@ -14,28 +14,29 @@ const MoodSelector = ({ onMoodSelect, initialMood }) => {
 
   const handleMoodSelect = (mood) => {
     setSelectedMood(mood);
-    if (onMoodSelect) {
-      onMoodSelect(mood);
-    }
+    onMoodSelect?.(mood);
   };
 
   return (
-    <div className="flex flex-wrap justify-center gap-4">
+    <div className="flex justify-center gap-6 flex-wrap">
       {moods.map((mood) => (
         <motion.button
           key={mood.id}
-          className={`p-4 rounded-lg border-2 flex items-center gap-2 transition-all relative ${
-            selectedMood?.id === mood.id
-              ? "bg-blue-500 text-white border-blue-600"
-              : "bg-white text-black border-gray-300"
-          } hover:bg-blue-200`}
+          className={`w-16 h-16 text-4xl rounded-full flex items-center justify-center transition-all
+            ${
+              selectedMood?.id === mood.id
+                ? "bg-blue-600 text-white shadow-xl"
+                : "bg-transparent text-black dark:text-white"
+            }`}
           onClick={() => handleMoodSelect(mood)}
-          whileHover={{ scale: 1.05 }}
+          whileHover={{
+            scale: 1.2,
+            rotate: [0, 5, -5, 0],
+            boxShadow: "0px 0px 10px rgba(0, 123, 255, 0.6)",
+          }}
+          whileTap={{ scale: 0.9 }}
         >
-          <span className="text-2xl" title={mood.label}>
-            {mood.icon}
-          </span>
-          <span className="font-semibold">{mood.label}</span>
+          <span title={mood.label}>{mood.icon}</span>
         </motion.button>
       ))}
     </div>

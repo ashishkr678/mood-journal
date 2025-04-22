@@ -78,12 +78,12 @@ const NotesCards = () => {
       transition={{ duration: 0.4 }}
     >
       {notes.length === 0 ? (
-        <p className="text-center col-span-2 text-gray-500">No notes yet.</p>
+        <p className="text-center col-span-2 text-gray-200 text-xl">No notes yet...</p>
       ) : (
         notes.map((entry, idx) => (
           <motion.div
             key={idx}
-            className="relative p-4 rounded-xl shadow-md bg-white/90 dark:bg-gray-800 backdrop-blur-md border border-gray-200 dark:border-gray-600"
+            className="relative p-4 rounded-xl shadow-md bg-white/20 dark:bg-gray-800/30 backdrop-blur-md border border-white/30 dark:border-gray-700"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: idx * 0.05 }}
@@ -95,12 +95,19 @@ const NotesCards = () => {
             >
               <FaTrash />
             </button>
-            <div className="text-2xl mb-2">
-              {entry.mood ? moodIcons[entry.mood.label] : "📝"}
+
+            {/* Emoji + Label */}
+            <div className="flex items-center gap-2 text-2xl mb-2">
+              <span>{entry.mood ? moodIcons[entry.mood.label] : "📝"}</span>
+              <span className="text-base font-medium text-gray-700 dark:text-gray-300">
+                {entry.mood?.label}
+              </span>
             </div>
+
             <p className="text-gray-800 dark:text-gray-100 font-medium mb-2">
               {entry.note}
             </p>
+
             <div className="text-sm text-gray-500 dark:text-gray-400">
               {formatDate(entry.timestamp)}
             </div>

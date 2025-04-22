@@ -28,7 +28,7 @@ const Journal = () => {
     try {
       const parsed = JSON.parse(localStorage.getItem(key));
       stored = Array.isArray(parsed) ? parsed : [];
-    } catch (e) {
+    } catch {
       stored = [];
     }
 
@@ -60,31 +60,45 @@ const Journal = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
     >
-      <div className="flex flex-col md:flex-row gap-6 bg-white/20 dark:bg-slate-800 p-6 rounded-2xl shadow-md">
-        <div className="flex-1 space-y-4">
-          <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
+      <div className="flex flex-col md:flex-row gap-6 bg-white/30 dark:bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-white/20">
+        <div className="w-full md:w-[60%] flex flex-col space-y-6 text-center relative">
+          <h2 className="text-xl font-bold text-gray-800 dark:text-white text-left">
             {getFormattedDate(selectedDate)}
           </h2>
-          <p className="text-lg text-gray-700 dark:text-gray-200">How are you feeling today?</p>
-          <MoodSelector onMoodSelect={setSelectedMood} initialMood={selectedMood} />
+
+          <p className="text-lg text-gray-200 dark:text-gray-100 font-medium text-center">
+            How are you feeling today?
+          </p>
+
+          <MoodSelector
+            onMoodSelect={setSelectedMood}
+            initialMood={selectedMood}
+          />
+
           <textarea
-            className="w-full mt-4 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 shadow-sm resize-none"
+            className="w-full p-3 rounded-lg border border-gray-300 dark:border-gray-500 bg-white/60 dark:bg-gray-800/40 text-gray-600 dark:text-gray-100 shadow-sm resize-none"
             rows="4"
             placeholder="Add a note..."
             value={note}
             onChange={(e) => setNote(e.target.value)}
-          ></textarea>
-          <motion.button
-            onClick={handleSave}
-            className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-6 rounded-lg transition-all shadow-md"
-            whileTap={{ scale: 0.95 }}
-          >
-            Save
-          </motion.button>
+          />
+          <div>
+            <motion.button
+              onClick={handleSave}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-gradient-to-r from-blue-300 to-cyan-500 text-white px-6 py-2 rounded-full shadow-lg font-semibold transition-all duration-300 hover:shadow-xl focus:outline-none"
+            >
+              Save
+            </motion.button>
+          </div>
         </div>
 
-        <div className="w-full md:w-1/2">
-          <Calendar selectedDate={selectedDate} onDateSelect={setSelectedDate} />
+        <div className="w-full md:w-[40%]">
+          <Calendar
+            selectedDate={selectedDate}
+            onDateSelect={setSelectedDate}
+          />
         </div>
       </div>
     </motion.div>
