@@ -3,9 +3,9 @@ import TopBar from "./components/TopBar";
 import BackgroundWrapper from "./components/BackgroundWrapper";
 import { getUserCoordinates } from "./services/GeolocationService";
 import { getWeather } from "./services/WeatherService";
+import Home from "./pages/Home";
 
 function App() {
-  const [currentView, setCurrentView] = useState("journal");
   const [weather, setWeather] = useState(null);
 
   useEffect(() => {
@@ -24,15 +24,9 @@ function App() {
 
   return (
     <BackgroundWrapper>
-      {/* TopBar should be inside the background for layering */}
-      <TopBar currentView={currentView} setCurrentView={setCurrentView} weather={weather} />
-
+      <TopBar weather={weather} />
       <div className="p-6 z-10 relative text-white">
-        {currentView === "journal" ? (
-          <p>Your Journal Entry UI here</p>
-        ) : (
-          <p>Your All Notes UI here</p>
-        )}
+        <Home weather={weather} />
       </div>
     </BackgroundWrapper>
   );

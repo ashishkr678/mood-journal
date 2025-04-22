@@ -11,7 +11,7 @@ const weatherIcons = {
   Haze: <FaSmog className="text-gray-400 text-xl" />,
 };
 
-const TopBar = ({ currentView, setCurrentView, weather }) => {
+const TopBar = ({ weather }) => {
   return (
     <motion.div
       initial={{ y: -20, opacity: 0 }}
@@ -33,27 +33,6 @@ const TopBar = ({ currentView, setCurrentView, weather }) => {
         ) : (
           <span className="text-white/70 text-sm">Fetching weather...</span>
         )}
-
-        <button
-          onClick={() => setCurrentView("journal")}
-          className={`px-4 py-1 rounded-full text-sm font-semibold transition ${
-            currentView === "journal"
-              ? "bg-white/30 text-white ring-1 ring-white"
-              : "bg-white/10 text-white hover:bg-white/20"
-          }`}
-        >
-          Journal
-        </button>
-        <button
-          onClick={() => setCurrentView("all-notes")}
-          className={`px-4 py-1 rounded-full text-sm font-semibold transition ${
-            currentView === "all-notes"
-              ? "bg-white/30 text-white ring-1 ring-white"
-              : "bg-white/10 text-white hover:bg-white/20"
-          }`}
-        >
-          All Notes
-        </button>
       </div>
     </motion.div>
   );

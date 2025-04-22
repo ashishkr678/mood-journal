@@ -34,7 +34,6 @@ const BackgroundWrapper = ({ children }) => {
       className="min-h-screen w-full bg-cover bg-center transition-all duration-1000"
       style={{ backgroundImage: `url(${bgImages[timeOfDay]})` }}
     >
-      {/* Content area including TopBar */}
       <div className="min-h-screen w-full">{children}</div>
     </div>
   );
