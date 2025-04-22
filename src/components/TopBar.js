@@ -17,38 +17,39 @@ const TopBar = ({ currentView, setCurrentView, weather }) => {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 80 }}
-      className="w-full px-4 py-3 flex justify-between items-center bg-gradient-to-r from-blue-100 to-blue-50 shadow-sm sticky top-0 z-50"
+      className="w-full px-4 py-3 flex justify-between items-center
+                 bg-white/10 backdrop-blur-sm text-white sticky top-0 z-50"
     >
-      <h1 className="text-2xl font-bold text-blue-600">MoodMate</h1>
+      <h1 className="text-2xl font-bold drop-shadow-md">MoodMate</h1>
 
       <div className="flex items-center gap-4">
         {weather ? (
-          <div className="flex items-center gap-2 text-sm text-gray-700 font-medium">
-            {weatherIcons[weather.condition] || <FaCloud className="text-gray-400 text-xl" />}
+          <div className="flex items-center gap-2 text-sm font-medium">
+            {weatherIcons[weather.condition] || <FaCloud className="text-white text-xl" />}
             <span>{weather.temp}°C</span>
-            <span className="capitalize text-gray-500">({weather.condition})</span>
+            <span className="capitalize">({weather.condition})</span>
             <span className="truncate max-w-[150px]">{weather.location}</span>
           </div>
         ) : (
-          <span className="text-gray-400 text-sm">Fetching weather...</span>
+          <span className="text-white/70 text-sm">Fetching weather...</span>
         )}
 
         <button
           onClick={() => setCurrentView("journal")}
-          className={`px-4 py-1 rounded-full text-sm font-medium transition ${
+          className={`px-4 py-1 rounded-full text-sm font-semibold transition ${
             currentView === "journal"
-              ? "bg-blue-500 text-white"
-              : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+              ? "bg-white/30 text-white ring-1 ring-white"
+              : "bg-white/10 text-white hover:bg-white/20"
           }`}
         >
           Journal
         </button>
         <button
           onClick={() => setCurrentView("all-notes")}
-          className={`px-4 py-1 rounded-full text-sm font-medium transition ${
+          className={`px-4 py-1 rounded-full text-sm font-semibold transition ${
             currentView === "all-notes"
-              ? "bg-blue-500 text-white"
-              : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+              ? "bg-white/30 text-white ring-1 ring-white"
+              : "bg-white/10 text-white hover:bg-white/20"
           }`}
         >
           All Notes
