@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import TopBar from "./components/TopBar";
+import { getUserCoordinates } from "./services/GeolocationService";
+import { getWeather } from "./services/WeatherService";
 
 function App() {
+  const [currentView, setCurrentView] = useState("journal");
+  const [weather, setWeather] = useState(null);
+
+  useEffect(() => {
+    const fetchWeatherData = async () => {
+      try {
+        const coords = await getUserCoordinates();
+        //const weatherData = await getWeather(coords);
+        //setWeather(weatherData);
+      } catch (error) {
+        console.error("Location or weather error:", error.message);
+      }
+    };
+
+    fetchWeatherData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen bg-gray-50">
+      <TopBar
+        currentView={currentView}
+        setCurrentView={setCurrentView}
+        weather={weather}
+      />
+
+      <div className="p-4">
+        {currentView === "journal" ? (
+          <p>Your Journal Entry UI here</p>
+        ) : (
+          <p>Your All Notes UI here</p>
+        )}
+      </div>
     </div>
   );
 }
