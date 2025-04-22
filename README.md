@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# MoodMate
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**MoodMate** is a responsive, animated mood‑tracking journal built in React. It combines a daily calendar, a mood selector, rich animations, dynamic backgrounds and live weather data to create an engaging personal journal experience.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Time‑Based Dynamic Backgrounds**  
+  The app automatically switches the background image (morning, afternoon, evening) based on the current time of day.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Animated UI**  
+  - Smooth page transitions and component reveals powered by Framer Motion  
+  - Button hover/tap effects (scale, glow, rotation)  
+  - Calendar slide‑in and date‑picker animations  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Mood Selector**  
+  - Five moods (Happy, Sad, Angry, Relaxed, Neutral) shown as large emojis  
+  - Click to select; hover animations and visual feedback  
+  - Tooltip labels on hover (desktop)  
 
-### `npm test`
+- **Journal Entry Form**  
+  - Select a date (desktop calendar or mobile icon toggle)  
+  - Write a note in a styled, semi‑transparent textarea  
+  - Save button with gradient background, hover glow and tap animation  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Responsive Calendar**  
+  - Desktop: calendar takes 40% of the layout width  
+  - Mobile: calendar hidden behind a toggle icon; taps open a blurred‑panel view  
+  - Correctly fills and aligns dates with empty slots before/after each month  
 
-### `npm run build`
+- **Local Storage Persistence**  
+  - Entries (mood + note + timestamp) are stored per date key (`YYYY‑MM‑DD`)  
+  - Journal reloads selected date’s entries and resets form on date change  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Notes & History View**  
+  - “My Notes” grid displays all saved entries in frosted‑glass cards  
+  - Each card shows: emoji + mood label, note text, timestamp, and a delete icon  
+  - Transparent, blurred background and hover elevation match the main journal theme  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Weather Integration**  
+  - Fetches current weather (condition, temperature, location) via WeatherStack API  
+  - Displays a color‑coded icon and text in the sticky top bar  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Dark Mode Support**  
+  - Tailwind `dark:` classes ensure all components adapt to light/dark themes  
+  - Semi‑transparent backgrounds and borders adjust for readability  
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Tech & Libraries
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **React** – component‑based UI  
+- **Tailwind CSS** – utility‑first styling and responsive layouts  
+- **Framer Motion** – animations and transitions  
+- **React Icons** – emoji, weather, and action icons  
+- **Axios** – weather API requests  
+- **LocalStorage** – offline persistence  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Mobile Optimization
 
-## Learn More
+- Reflows to a single‑column form on small screens  
+- Calendar toggles behind a single icon for space savings  
+- All buttons, inputs and icons remain touch‑friendly  
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Enjoy tracking your moods and notes with MoodMate! 😊  
