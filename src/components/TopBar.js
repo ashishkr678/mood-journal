@@ -31,7 +31,7 @@ const TopBar = ({ weather }) => {
             <span className="truncate max-w-[150px]">{weather.location}</span>
           </div>
         ) : (
-          <span className="text-white/70 text-sm">Fetching weather...</span>
+          <span className="text-white/70 text-sm">Fetching weather wait for some time...</span>
         )}
       </div>
     </motion.div>
