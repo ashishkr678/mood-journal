@@ -96,7 +96,6 @@ const NotesCards = () => {
               <FaTrash />
             </button>
 
-            {/* Emoji + Label */}
             <div className="flex items-center gap-2 text-2xl mb-2">
               <span>{entry.mood ? moodIcons[entry.mood.label] : "📝"}</span>
               <span className="text-base font-medium text-gray-700 dark:text-gray-300">

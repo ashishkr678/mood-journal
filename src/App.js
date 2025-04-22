@@ -12,8 +12,8 @@ function App() {
     const fetchWeatherData = async () => {
       try {
         const coords = await getUserCoordinates();
-        // const weatherData = await getWeather(coords);
-        // setWeather(weatherData);
+        const weatherData = await getWeather(coords);
+        setWeather(weatherData);
       } catch (error) {
         console.error("Location or weather error:", error.message);
       }
